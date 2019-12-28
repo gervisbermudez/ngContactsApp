@@ -1,0 +1,12 @@
+.collection {
+  padding: 0px 20px;
+  border: 0;
+}
+
+.collection li {
+  cursor: pointer;
+}
+
+.collection li:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+}
