@@ -1,6 +1,6 @@
 import { Component } from "@angular/core";
 
-import { LocalStorageService } from '../services/localStorage.service.t';
+import { LocalStorageService } from '../services/localStorage.service';
 
 @Component({
   selector: "app-contact-list",
@@ -18,7 +18,6 @@ export class AppContactList {
   }
 
   ngOnInit(): void {
-         const newTodo = 'new todo'; 
-         this.localStorageService.storeOnLocalStorage(newTodo);
+         this.contacts = this.localStorageService.getstoreOnLocalStorage();
     }
 }

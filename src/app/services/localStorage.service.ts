@@ -14,11 +14,18 @@ export class LocalStorageService {
           const currentTodoList = this.storage.get(STORAGE_KEY) || [];
           // push new task to array
           currentTodoList.push({
-              title: taskTitle,
-              isChecked: false 
+            name: "Title",
+            lastName: "First Line",
+            number: "+57 614613"
           });
           // insert updated array to local storage
           this.storage.set(STORAGE_KEY, currentTodoList);
           console.log(this.storage.get(STORAGE_KEY) || 'LocaL storage is empty');
+     }
+
+     public getstoreOnLocalStorage(): [] {
+          
+          // get array of tasks from local storage
+          return this.storage.get(STORAGE_KEY) || []
      }
 }
