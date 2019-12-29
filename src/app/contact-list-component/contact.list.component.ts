@@ -1,5 +1,7 @@
 import { Component } from "@angular/core";
 
+import { LocalStorageService } from '../services/localStorage.service.t';
+
 @Component({
   selector: "app-contact-list",
   templateUrl: "./contact.list.component.html",
@@ -11,5 +13,12 @@ export class AppContactList {
     lastName: "First Line",
     number: "+57 614613"
   };
-  contacts = [this.contact, this.contact, this.contact, this.contact];
+  contacts = [];
+  constructor(private localStorageService: LocalStorageService) {
+  }
+
+  ngOnInit(): void {
+         const newTodo = 'new todo'; 
+         this.localStorageService.storeOnLocalStorage(newTodo);
+    }
 }

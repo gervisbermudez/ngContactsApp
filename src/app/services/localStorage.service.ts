@@ -2,7 +2,7 @@ import { Inject, Injectable } from '@angular/core';
 import { LOCAL_STORAGE, StorageService } from 'ngx-webstorage-service';
 
 // key that is used to access the data in local storageconst STORAGE_KEY = 'local_todolist';
-STORAGE_KEY = 'local_todolist';
+const STORAGE_KEY = 'local_todolist';
 
 @Injectable()
 export class LocalStorageService {

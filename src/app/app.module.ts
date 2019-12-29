@@ -14,7 +14,7 @@ import { AppContactList } from "./contact-list-component/contact.list.component"
 import { StorageServiceModule } from 'ngx-webstorage-service';
 
 //Services
-import {LocalStorageService} from './app/Services/contacts.service';
+import {LocalStorageService} from './services/localStorage.service';
 
 @NgModule({
   declarations: [AppComponent, AppMenu, AppSearch, AppFixedBtn, AppContactList],
