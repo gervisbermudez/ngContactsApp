@@ -1,7 +1,7 @@
 //Core
-import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
+import { NgModule } from "@angular/core";
+import { BrowserModule } from "@angular/platform-browser";
+import { FormsModule } from "@angular/forms";
 
 //Components
 import { AppComponent } from "./app.component";
@@ -11,14 +11,27 @@ import { AppFixedBtn } from "./fixed-btn-component/fixed.btn.component";
 import { AppContactList } from "./contact-list-component/contact.list.component";
 
 //Storage
-import { StorageServiceModule } from 'ngx-webstorage-service';
+import { StorageServiceModule } from "ngx-webstorage-service";
+
+//Firebase
+import { AngularFireModule } from "@angular/fire";
+import { environment } from "../environments/environment";
+import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { AngularFireStorageModule } from '@angular/fire/storage';
+import { AngularFireAuthModule } from '@angular/fire/auth';
 
 //Services
-import {LocalStorageService} from './services/localStorage.service';
+import { LocalStorageService } from "./services/localStorage.service";
 
 @NgModule({
   declarations: [AppComponent, AppMenu, AppSearch, AppFixedBtn, AppContactList],
-  imports: [BrowserModule, StorageServiceModule],
+  imports: [BrowserModule, 
+  StorageServiceModule, 
+  AngularFireModule.initializeApp(environment.firebase),  
+  AngularFirestoreModule, // imports firebase/firestore, only needed for database features
+  AngularFireAuthModule, // imports firebase/auth, only needed for auth features,
+  AngularFireStorageModule // imports firebase/storage only needed for storage features
+  ],
   providers: [LocalStorageService],
   bootstrap: [AppComponent]
 })

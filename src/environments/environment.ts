@@ -3,7 +3,16 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  firebase: {
+    apiKey: "AIzaSyDOXdAz0my6KXnz_isi34d3pLnU2ep32hk",
+    authDomain: "gncontactsapp.firebaseapp.com",
+    databaseURL: "https://gncontactsapp.firebaseio.com",
+    projectId: "gncontactsapp",
+    storageBucket: "gncontactsapp.appspot.com",
+    messagingSenderId: "372991609716",
+    appId: "1:372991609716:web:1b3f0b971bba4d2c6bfa21"
+  }
 };
 
 /*
