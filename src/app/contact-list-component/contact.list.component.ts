@@ -1,9 +1,5 @@
 import { Component } from "@angular/core";
-import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
-import { Observable } from 'rxjs';
-
-//import { LocalStorageService } from '../services/localStorage.service';
-export interface Item { name: string; }
+import { ContactsServices } from "../services/contacts.service";
 
 @Component({
   selector: "app-contact-list",
@@ -11,20 +7,16 @@ export interface Item { name: string; }
   styleUrls: ["./contact.list.component.scss"]
 })
 export class AppContactList {
-  contact = {
-    name: "Title",
-    lastName: "First Line",
-    number: "+57 614613"
-  };
-  contacts: Observable<Item[]>;
-  private itemsCollection: AngularFirestoreCollection<Item>;
-  constructor(private afs: AngularFirestore) {
-    this.itemsCollection = afs.collection<Item>('contacts');
-    this.contacts = this.itemsCollection.valueChanges();
-    console.log(this.contacts);
+  contacts = [];
+
+  constructor(public _cs: ContactsServices) {
+    this._cs.getContacts()
+    .suscribe((contacts: any[]) => {
+      console.log(contacts);
+    });
   }
 
   ngOnInit(): void {
-         //this.contacts = this.localStorageService.getstoreOnLocalStorage();
-    }
+    //this.contacts = this.localStorageService.getstoreOnLocalStorage();
+  }
 }

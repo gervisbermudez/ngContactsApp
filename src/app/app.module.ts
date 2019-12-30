@@ -22,6 +22,7 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
 
 //Services
 import { LocalStorageService } from "./services/localStorage.service";
+import { ContactsServices } from "./services/contacts.service";
 
 @NgModule({
   declarations: [AppComponent, AppMenu, AppSearch, AppFixedBtn, AppContactList],
@@ -32,7 +33,7 @@ import { LocalStorageService } from "./services/localStorage.service";
   AngularFireAuthModule, // imports firebase/auth, only needed for auth features,
   AngularFireStorageModule // imports firebase/storage only needed for storage features
   ],
-  providers: [LocalStorageService],
+  providers: [LocalStorageService, ContactsServices],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
