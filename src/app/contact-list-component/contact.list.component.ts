@@ -8,15 +8,16 @@ import { ContactsServices } from "../services/contacts.service";
 })
 export class AppContactList {
   contacts = [];
-
+  progress = false;
   constructor(public _cs: ContactsServices) {
-    this._cs.getContacts()
-    .suscribe((contacts: any[]) => {
-      console.log(contacts);
-    });
+    this.progress = true;
   }
 
   ngOnInit(): void {
-    //this.contacts = this.localStorageService.getstoreOnLocalStorage();
+    this._cs.getContacts()
+    .subscribe((contacts: any[]) => {
+      this.contacts = contacts;
+      this.progress = false;
+    });
   }
 }

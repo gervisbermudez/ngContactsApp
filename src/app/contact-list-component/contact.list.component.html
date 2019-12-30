@@ -1,18 +1,20 @@
-<ul class="collection">
-  <li class="collection-item avatar" *ngFor="let contact of contacts | async">
-    <img
-      src="https://materializecss.com/images/yuna.jpg
-"
+<div class="container">
+	<div class="progress" *ngIf="progress">
+		<div class="indeterminate"></div>
+	</div>
+	<ul class="collection">
+		<li class="collection-item avatar" *ngFor="let contact of contacts">
+			<img
+      src="https://materializecss.com/images/yuna.jpg"
       alt=""
       class="circle"
     />
-    <span class="title">{{contact.name}}</span>
-    <p>
-      {{contact.lastName}} <br />
+			<span class="title">{{contact.name}}</span>
+			<p>
+				{{contact.lastName}} <br />
       {{contact.number}}
     </p>
-    <a href="#!" class="secondary-content"
-      ><i class="material-icons">grade</i></a
-    >
-  </li>
-</ul>
+				<a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
+		</li>
+	</ul>
+</div>
