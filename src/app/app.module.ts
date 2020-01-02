@@ -24,6 +24,10 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
 import { LocalStorageService } from "./services/localStorage.service";
 import { ContactsServices } from "./services/contacts.service";
 
+//Ngrx
+import { StoreModule } from '@ngrx/store';
+import { reducer } from './reducers/contact.reducer';
+
 @NgModule({
   declarations: [AppComponent, AppMenu, AppSearch, AppFixedBtn, AppContactList],
   imports: [BrowserModule, 
@@ -31,7 +35,10 @@ import { ContactsServices } from "./services/contacts.service";
   AngularFireModule.initializeApp(environment.firebase),  
   AngularFirestoreModule, // imports firebase/firestore, only needed for database features
   AngularFireAuthModule, // imports firebase/auth, only needed for auth features,
-  AngularFireStorageModule // imports firebase/storage only needed for storage features
+  AngularFireStorageModule, // imports firebase/storage only needed for storage features,
+  StoreModule.forRoot({
+      contact: reducer
+    })
   ],
   providers: [LocalStorageService, ContactsServices],
   bootstrap: [AppComponent]

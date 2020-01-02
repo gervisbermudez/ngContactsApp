@@ -4,11 +4,8 @@ import {
   AngularFirestoreCollection
 } from "@angular/fire/firestore";
 import { Observable } from "rxjs";
-export interface Contact {
-  name: String;
-  lastName: String;
-  number: Number;
-}
+
+import { Contact } from '../models/contact.model';
 
 @Injectable()
 export class ContactsServices {
