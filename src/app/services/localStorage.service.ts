@@ -8,6 +8,7 @@ const STORAGE_KEY = 'local_todolist';
 export class LocalStorageService {
      anotherTodolist = [];
      constructor(@Inject(LOCAL_STORAGE) private storage: StorageService) { }
+     
      public storeOnLocalStorage(taskTitle: string): void {
           
           // get array of tasks from local storage

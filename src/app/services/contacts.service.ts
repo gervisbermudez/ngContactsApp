@@ -10,9 +10,9 @@ import { Contact } from '../models/contact.model';
 @Injectable()
 export class ContactsServices {
   private itemsCollection: AngularFirestoreCollection<any>;
-  public contacts: any[] = [];
+  public contacts: Contact[] = [];
 
-  constructor(private afs: AngularFirestore) {}
+  constructor(private afs: AngularFirestore) { }
 
   public getContacts() {
     this.itemsCollection = this.afs.collection<any>("contacts");
