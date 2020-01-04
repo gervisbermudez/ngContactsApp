@@ -1,32 +1,31 @@
 import { Inject, Injectable } from '@angular/core';
 import { LOCAL_STORAGE, StorageService } from 'ngx-webstorage-service';
+import { Contact } from '../models/contact.model';
 
-// key that is used to access the data in local storageconst STORAGE_KEY = 'local_todolist';
-const STORAGE_KEY = 'local_todolist';
+// key that is used to access the data in local storageconst STORAGE_KEY = 'app_local_contacts';
+const STORAGE_KEY = 'app_local_contacts';
 
 @Injectable()
 export class LocalStorageService {
-     anotherTodolist = [];
+
      constructor(@Inject(LOCAL_STORAGE) private storage: StorageService) { }
-     
-     public storeOnLocalStorage(taskTitle: string): void {
-          
-          // get array of tasks from local storage
-          const currentTodoList = this.storage.get(STORAGE_KEY) || [];
-          // push new task to array
-          currentTodoList.push({
-            name: "Title",
-            lastName: "First Line",
-            number: "+57 614613"
+
+     public storeOnLocalStorage(contact: Contact): void {
+          const currentContactsList = this.storage.get(STORAGE_KEY) || [];
+          let isActuallyInStorage = false;
+          console.log(currentContactsList.length);
+          currentContactsList.forEach(element => {
+               if (element.id == contact.id) {
+                    isActuallyInStorage = true;
+               }
           });
-          // insert updated array to local storage
-          this.storage.set(STORAGE_KEY, currentTodoList);
-          console.log(this.storage.get(STORAGE_KEY) || 'LocaL storage is empty');
+          if (!isActuallyInStorage) {
+               currentContactsList.push(contact);
+          }
+          this.storage.set(STORAGE_KEY, currentContactsList);
      }
 
      public getstoreOnLocalStorage(): [] {
-          
-          // get array of tasks from local storage
           return this.storage.get(STORAGE_KEY) || []
      }
 }
