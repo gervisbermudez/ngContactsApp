@@ -6,8 +6,8 @@ import { Component } from "@angular/core";
   styleUrls: ["./app.component.css"]
 })
 export class AppComponent {
-  title = "Angular";
+  window: any = window;
   ngOnInit() {
-    //window.M.AutoInit();
+    this.window.M.AutoInit();
   }
 }
